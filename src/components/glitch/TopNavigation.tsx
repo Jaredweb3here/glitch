@@ -1,0 +1,39 @@
+import type { TokenInfo } from '../../types/glitch';
+
+type Props = { tokenInfo?: TokenInfo };
+
+function shortAddress(address?: string) {
+  if (!address) return '0x...';
+  return `${address.slice(0, 6)}...${address.slice(-4)}`;
+}
+
+function compactUsd(value?: number) {
+  const amount = Number(value || 0);
+  if (amount >= 1_000_000) return `$${(amount / 1_000_000).toFixed(2)}M`;
+  if (amount >= 1_000) return `$${(amount / 1_000).toFixed(1)}K`;
+  return `$${amount.toFixed(0)}`;
+}
+
+export function TopNavigation({ tokenInfo }: Props) {
+  const symbol = tokenInfo?.symbol || 'TOKEN';
+  const holders = tokenInfo ? tokenInfo.holderCount || '--' : '--';
+  return (
+    <header className="top-nav">
+      <div className="brand">
+        <img src="/glitch-logo.png" alt="" className="brand-logo" />
+        <span>GLITCH</span>
+      </div>
+      <nav className="nav-center" aria-label="Primary">
+        <span className="token-pill active">{symbol}</span>
+        <span className="token-pill">MC {compactUsd(tokenInfo?.latestMcUsd)}</span>
+        <span className="token-pill">VOL 1M {compactUsd(tokenInfo?.volume1mUsd)}</span>
+        <span className="token-pill">HOLDERS {holders}</span>
+        <span className="token-pill">CA {shortAddress(tokenInfo?.address)}</span>
+      </nav>
+      <div className="nav-right">
+        <div className="live-indicator"><span />LIVE</div>
+        <a className="social-link" href="https://x.com/Glitchdotguru" target="_blank" rel="noreferrer" aria-label="GLITCH on X">X</a>
+      </div>
+    </header>
+  );
+}
