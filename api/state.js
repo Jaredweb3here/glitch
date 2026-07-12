@@ -4,7 +4,7 @@ import { GLITCH_TOKEN, redisKey } from './_lib/chain.js';
 const ETH_PRICE = 1800;
 const ROUND_SECONDS = 60;
 const MIN_ENTRY_USD = 2;
-const POT_FEE_RATE = 0.02 * 0.5;
+const POT_FEE_RATE = 0.01;
 
 function json(res, status, data) {
   res.statusCode = status;

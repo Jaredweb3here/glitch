@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { TokenInfo } from '../../types/glitch';
 
 type Props = { tokenInfo?: TokenInfo };
@@ -17,6 +18,16 @@ function compactUsd(value?: number) {
 export function TopNavigation({ tokenInfo }: Props) {
   const symbol = tokenInfo?.symbol || 'TOKEN';
   const holders = tokenInfo ? tokenInfo.holderCount || '--' : '--';
+  const [copied, setCopied] = useState(false);
+
+  function copyCA() {
+    if (!tokenInfo?.address) return;
+    navigator.clipboard.writeText(tokenInfo.address).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    });
+  }
+
   return (
     <header className="top-nav">
       <div className="brand">
@@ -28,7 +39,10 @@ export function TopNavigation({ tokenInfo }: Props) {
         <span className="token-pill">MC {compactUsd(tokenInfo?.latestMcUsd)}</span>
         <span className="token-pill">VOL 1M {compactUsd(tokenInfo?.volume1mUsd)}</span>
         <span className="token-pill">HOLDERS {holders}</span>
-        <span className="token-pill">CA {shortAddress(tokenInfo?.address)}</span>
+        <button className="token-pill ca-pill" onClick={copyCA} title={tokenInfo?.address}>
+          CA {shortAddress(tokenInfo?.address)}
+          <span className="ca-copy">{copied ? '✓' : '⎘'}</span>
+        </button>
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>

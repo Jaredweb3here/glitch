@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { BuyerStat, Payout, RoundState, TokenInfo, Trade } from '../types/glitch';
 
 const ETH_PRICE = 1800;
-const POT_FEE_RATE = 0.02 * 0.5;
+const POT_FEE_RATE = 0.01;
 const wallets = [
   '0x3A11F8d920aC4E0E2B11A973e4E7C836F2A26048',
   '0x9250E4f7839dA7461a7d9A59B617Dcb452e91c7c',

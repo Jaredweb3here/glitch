@@ -87,10 +87,13 @@ button, input { font: inherit; }
   z-index: 3;
 }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--lime-bright); font-family: Oxanium, sans-serif; font-size: 29px; font-weight: 800; letter-spacing: .03em; }
-.brand-logo { width: 38px; height: 38px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(183,255,0,.18)); }
+.brand-logo { width: 38px; height: 38px; object-fit: contain; border-radius: 10px; filter: drop-shadow(0 0 8px rgba(183,255,0,.18)); }
 .nav-center { display: flex; align-items: center; gap: 10px; }
 .token-pill { height: 42px; display: grid; place-items: center; color: var(--text-secondary); font-size: 13px; padding: 0 14px; text-transform: uppercase; border: 1px solid rgba(183,255,0,.17); background: rgba(3,10,6,.42); border-radius: 3px; font-variant-numeric: tabular-nums; }
 .token-pill.active { color: var(--lime); min-width: 92px; background: rgba(5,12,7,.78); border-color: rgba(183,255,0,.34); }
+.ca-pill { cursor: pointer; display: flex; align-items: center; gap: 8px; font: inherit; letter-spacing: .02em; }
+.ca-pill:hover { border-color: rgba(183,255,0,.45); color: var(--lime); }
+.ca-copy { font-size: 14px; opacity: .7; }
 .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
 .live-indicator { height: 36px; padding: 0 13px; display: flex; align-items: center; gap: 9px; color: var(--lime); border: 1px solid rgba(183,255,0,.24); background: rgba(3,10,6,.72); font-size: 13px; }
 .live-indicator span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); animation: pulse-dot 1.4s infinite; }
