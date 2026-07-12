@@ -33,7 +33,7 @@ export function CountdownTimer({ round, onBuy, mode }: Props) {
         onClick={onBuy}
         disabled={mode === 'live'}
       >
-        {mode === 'live' ? '▶ LIVE DATA MODE' : '▶ BUY GLITCH'}
+        ▶ BUY GLITCH
       </motion.button>
       <span className="edge-symbol left">$</span>
       <span className="edge-symbol right">0x</span>

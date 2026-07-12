@@ -1,8 +1,7 @@
 import { Panel } from './Panel';
 
 const rows = [
-  'every buy = min_entry resets the clock to 60s',
-  'min_entry doubles every 5 min · resets each round',
+  'every buy resets the clock to 60s',
   'every trade pays a 2% fee',
   'fee split: 50% pot · 50% marketing',
   'at 0:00 the last buyer takes the pot',
