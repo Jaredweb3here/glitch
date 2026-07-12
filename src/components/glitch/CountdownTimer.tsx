@@ -27,14 +27,6 @@ export function CountdownTimer({ round, onBuy, mode }: Props) {
       </GlitchText>
       <p>LAST BUYER TAKES THE POT</p>
       {round.secondsLeft === 60 && round.status === 'active' && <span className="clock-reset">CLOCK RESET</span>}
-      <motion.button
-        className="buy-button"
-        whileTap={{ scale: 0.985 }}
-        onClick={onBuy}
-        disabled={mode === 'live'}
-      >
-        ▶ BUY GLITCH
-      </motion.button>
       <span className="edge-symbol left">$</span>
       <span className="edge-symbol right">0x</span>
     </section>
