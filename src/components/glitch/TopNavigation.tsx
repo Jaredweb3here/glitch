@@ -31,8 +31,8 @@ export function TopNavigation({ tokenInfo }: Props) {
   return (
     <header className="top-nav">
       <div className="brand">
-        <img src="/collector-logo.png" alt="" className="brand-logo" />
-        <span>COLLECTOR</span>
+        <img src="/glitch-logo.png" alt="" className="brand-logo" />
+        <span>GLITCH</span>
       </div>
       <nav className="nav-center" aria-label="Primary">
         <span className="token-pill active">{symbol}</span>
@@ -46,7 +46,7 @@ export function TopNavigation({ tokenInfo }: Props) {
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>
-        <a className="social-link" href="https://x.com/collector_rh" target="_blank" rel="noreferrer" aria-label="COLLECTOR on X">X</a>
+        <a className="social-link" href="https://x.com/Glitchdotguru" target="_blank" rel="noreferrer" aria-label="GLITCH on X">X</a>
       </div>
     </header>
   );
