@@ -31,7 +31,7 @@ export function TopNavigation({ tokenInfo }: Props) {
   return (
     <header className="top-nav">
       <div className="brand">
-        <img src="/glitch-logo.png" alt="" className="brand-logo" />
+        <img src="/collector-logo.png" alt="" className="brand-logo" />
         <span>COLLECTOR</span>
       </div>
       <nav className="nav-center" aria-label="Primary">
