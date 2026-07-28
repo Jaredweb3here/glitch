@@ -1,5 +1,5 @@
 import { redisCommand } from '../api/_lib/redis.js';
-import { GLITCH_TOKEN, TRANSFER_TOPIC, addressFromTopic, hexToBigInt, redisKey, rpc, weiToEth } from '../api/_lib/chain.js';
+import { GLITCH_TOKEN, REDIS_PREFIX, TRANSFER_TOPIC, addressFromTopic, hexToBigInt, redisKey, rpc, weiToEth } from '../api/_lib/chain.js';
 import { getGmgnTokenInfo } from '../api/_lib/gmgn.js';
 
 const ETH_PRICE = 1800;
@@ -110,8 +110,6 @@ function classifyTransfer(log, tx) {
 async function storeRpcEvent(log, tokenInfo, blockTimestamps) {
   const txHash = log.transactionHash;
   const eventId = `${txHash}:${Number(hexToBigInt(log.logIndex || '0x0'))}`;
-  const dedup = await redisCommand(['SET', redisKey(`event:${eventId}`), '1', 'NX', 'EX', '2592000']);
-  if (dedup.result !== 'OK') return;
 
   const tx = await rpc('eth_getTransactionByHash', [txHash]);
   if (!tx) return;
@@ -119,6 +117,9 @@ async function storeRpcEvent(log, tokenInfo, blockTimestamps) {
   const valueWei = hexToBigInt(tx.value);
   const tokenAmountRaw = hexToBigInt(log.data);
   if (tokenAmountRaw <= 0n) return;
+
+  const dedup = await redisCommand(['SET', redisKey(`event:${eventId}`), '1', 'NX', 'EX', '2592000']);
+  if (dedup.result !== 'OK') return;
 
   const timestamp = blockTimestamps.get(log.blockNumber) || Date.now();
   const cls = classifyTransfer(log, tx);
@@ -233,10 +234,15 @@ async function tick() {
   try {
     const tokenInfo = await getTokenInfo();
     if (!tokenInfo) return;
-    await Promise.allSettled([
+    const results = await Promise.allSettled([
       indexBlockscout(tokenInfo),
       indexRpc(tokenInfo)
     ]);
+    for (const result of results) {
+      if (result.status === 'rejected') {
+        log(`index error: ${result.reason?.message || result.reason}`);
+      }
+    }
   } catch (err) {
     log(`tick error: ${err.message}`);
   } finally {
@@ -244,6 +250,6 @@ async function tick() {
   }
 }
 
-log(`starting — token ${GLITCH_TOKEN}`);
+log(`starting — token ${GLITCH_TOKEN}, prefix ${REDIS_PREFIX}`);
 tick();
 setInterval(tick, POLL_INTERVAL_MS);

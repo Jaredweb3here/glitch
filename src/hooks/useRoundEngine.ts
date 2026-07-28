@@ -121,6 +121,7 @@ export function useRoundEngine(onValidTrade?: (trade: Trade) => void) {
   const [lastTradeId, setLastTradeId] = useState(mode === 'demo' ? initialTrades[0].id : '');
   const tradeTimes = useRef<Record<string, number>>({});
   const liveLoadInFlight = useRef(false);
+  const liveStateLoaded = useRef(false);
   const payoutRef = useRef(false);
 
   const computedBuyers = useMemo<BuyerStat[]>(() => {
@@ -252,10 +253,11 @@ export function useRoundEngine(onValidTrade?: (trade: Trade) => void) {
         setTokenInfo(data.tokenInfo);
         setLastTradeId(loaded[0]?.id ?? '');
         const incomingRound = data.round ?? roundFromTrades(loaded);
+        const firstLiveLoad = !liveStateLoaded.current;
+        liveStateLoaded.current = true;
         setRound(current => {
           const hasNewBuy = incomingRound.buys > current.buys || incomingRound.lastBuyer !== current.lastBuyer;
           const statusChanged = incomingRound.status !== current.status || incomingRound.roundId !== current.roundId;
-          const firstLiveLoad = current.buys === 0 && current.wallets === 0;
           const secondsLeft = firstLiveLoad || hasNewBuy || statusChanged
             ? incomingRound.secondsLeft
             : Math.min(current.secondsLeft, incomingRound.secondsLeft);
