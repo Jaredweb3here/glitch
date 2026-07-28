@@ -46,7 +46,7 @@ export function TopNavigation({ tokenInfo }: Props) {
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>
-        <a className="social-link" href="https://x.com/varo_ponzi" target="_blank" rel="noreferrer" aria-label="VaroPonzi on X">X</a>
+        <a className="social-link" href="https://x.com/varoponzi" target="_blank" rel="noreferrer" aria-label="VaroPonzi on X">X</a>
       </div>
     </header>
   );
