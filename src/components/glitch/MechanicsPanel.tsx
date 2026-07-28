@@ -2,7 +2,7 @@ import { Panel } from './Panel';
 
 const rows = [
   'every buy resets the clock to 60s',
-  'every trade pays a 2% fee',
+  'every trade pays a 1% fee',
   'fee split: 50% pot · 50% marketing',
   'at 0:00 the last buyer takes the pot',
   'next round starts automatically'

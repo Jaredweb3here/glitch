@@ -19,7 +19,7 @@ export function GlitchDashboard() {
   const [delta, setDelta] = useState<number | undefined>();
 
   const onValidTrade = useCallback((trade: { usd: number }) => {
-    const potDelta = trade.usd * 0.02 * 0.5;
+    const potDelta = trade.usd * 0.01;
     setDelta(potDelta);
     window.setTimeout(() => setDelta(undefined), 700);
   }, []);

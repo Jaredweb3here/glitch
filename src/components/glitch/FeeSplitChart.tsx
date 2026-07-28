@@ -34,7 +34,7 @@ export function FeeSplitChart() {
               );
             })}
           </svg>
-          <div className="donut-center"><strong>2%</strong><span>FEE</span></div>
+          <div className="donut-center"><strong>1%</strong><span>FEE</span></div>
         </div>
         <div className="fee-legend">
           {segments.map(segment => (

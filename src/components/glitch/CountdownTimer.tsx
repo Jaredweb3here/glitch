@@ -21,7 +21,7 @@ export function CountdownTimer({ round, onBuy, mode }: Props) {
 
   return (
     <section className={`timer-panel ${danger ? 'danger' : ''} ${critical ? 'critical' : ''} ${round.status !== 'active' ? 'settling' : ''}`}>
-      <span className="timer-chip">GLITCH</span>
+      <span className="timer-chip">VaroPonzi</span>
       <GlitchText active={critical || round.status !== 'active'} className="timer-value">
         {format(round.secondsLeft)}
       </GlitchText>
