@@ -3,7 +3,7 @@ import { Panel } from './Panel';
 const radius = 44;
 const circumference = 2 * Math.PI * radius;
 const segments = [
-  { name: 'POT', value: 100, color: '#1E1E3A' }
+  { name: 'POT', value: 100, color: '#FF007A' }
 ];
 
 export function FeeSplitChart() {

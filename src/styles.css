@@ -14,15 +14,16 @@ button, input { font: inherit; }
   --panel-bg: rgba(255, 255, 255, .82);
   --panel-bg-strong: rgba(255, 255, 255, .96);
   --border: rgba(0, 0, 0, .09);
-  --border-active: rgba(0, 0, 0, .22);
-  --lime: #1E1E3A;
-  --lime-bright: #0F0F28;
-  --lime-muted: #5A5A75;
+  --border-active: rgba(255, 0, 122, .28);
+  --lime: #FF007A;
+  --lime-bright: #E6006E;
+  --lime-muted: #FF9FCC;
   --text-primary: #111827;
   --text-secondary: #6B7280;
   --text-dim: #9CA3AF;
   --burn: #DC2626;
   --divider: rgba(0, 0, 0, .06);
+  --accent-gradient: linear-gradient(135deg, #FF007A, #FC72FF);
 }
 
 .glitch-app {
@@ -63,7 +64,7 @@ button, input { font: inherit; }
 }
 .vignette {
   z-index: -1;
-  background: radial-gradient(circle at 50% 42%, rgba(180,190,210,.08), transparent 42%), radial-gradient(circle, transparent 48%, rgba(0,0,0,.18));
+  background: radial-gradient(circle at 50% 42%, rgba(255,0,122,.06), transparent 42%), radial-gradient(circle, transparent 48%, rgba(0,0,0,.18));
 }
 .ambient-symbol {
   position: fixed;
@@ -160,7 +161,7 @@ button, input { font: inherit; }
 .timer-value { font: 800 clamp(104px, 8vw, 136px)/.9 Oxanium, sans-serif; color: var(--lime-bright); letter-spacing: -.055em; font-variant-numeric: tabular-nums; text-shadow: 0 1px 4px rgba(0,0,0,.08); animation: timer-breathe 3s infinite; }
 .timer-panel.critical .timer-value { animation: timer-breathe .75s infinite, glitch-shake .18s steps(2) infinite; }
 .timer-panel p { margin: 8px 0 16px; color: var(--text-secondary); font-size: 13px; letter-spacing: .18em; }
-.buy-button { position: relative; width: 320px; height: 56px; background: var(--lime-bright); color: #FFFFFF; border: 0; border-radius: 3px; font-weight: 800; overflow: hidden; cursor: pointer; }
+.buy-button { position: relative; width: 320px; height: 56px; background: var(--accent-gradient); color: #FFFFFF; border: 0; border-radius: 3px; font-weight: 800; overflow: hidden; cursor: pointer; box-shadow: 0 2px 12px rgba(255,0,122,.28); }
 .buy-button::after { content: ''; position: absolute; inset: 0; transform: translateX(-120%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent); animation: button-pass 4.8s linear infinite; }
 .clock-reset { position: absolute; top: 192px; color: var(--lime); font-size: 12px; letter-spacing: .18em; animation: clock-reset .5s ease both; }
 .edge-symbol { position: absolute; color: rgba(0,0,0,.14); font-size: 24px; }
