@@ -1,5 +1,5 @@
 export const RPC_URL = process.env.GLITCH_RPC_URL || 'https://rpc.mainnet.chain.robinhood.com';
-export const GLITCH_TOKEN = (process.env.GLITCH_TOKEN_ADDRESS || '0x89de619ac9986fa8467d5007413a39136c326e8f').toLowerCase();
+export const GLITCH_TOKEN = (process.env.GLITCH_TOKEN_ADDRESS || '0x68b966b34bc8781b86ecb06fc3f47d3584352dc1').toLowerCase();
 export const REDIS_PREFIX = process.env.GLITCH_REDIS_PREFIX || `glitch:${GLITCH_TOKEN}`;
 export const TRANSFER_TOPIC = '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef';
 

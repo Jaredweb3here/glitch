@@ -32,7 +32,7 @@ export function TopNavigation({ tokenInfo }: Props) {
     <header className="top-nav">
       <div className="brand">
         <img src="/glitch-logo.png" alt="" className="brand-logo" />
-        <span>VaroPonzi</span>
+        <span>UniPonsi</span>
       </div>
       <nav className="nav-center" aria-label="Primary">
         <span className="token-pill active">{symbol}</span>
@@ -46,7 +46,7 @@ export function TopNavigation({ tokenInfo }: Props) {
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>
-        <a className="social-link" href="https://x.com/varoponzi" target="_blank" rel="noreferrer" aria-label="VaroPonzi on X">X</a>
+        <a className="social-link" href="https://x.com/uniponsi" target="_blank" rel="noreferrer" aria-label="UniPonsi on X">X</a>
       </div>
     </header>
   );
