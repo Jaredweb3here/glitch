@@ -47,7 +47,7 @@ export function TopNavigation({ tokenInfo }: Props) {
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>
-        <a className="social-link" href="https://x.com/uniglitch" target="_blank" rel="noreferrer" aria-label="UniGlitch on X">X</a>
+        <a className="social-link" href="https://x.com/uniglitch_fun" target="_blank" rel="noreferrer" aria-label="UniGlitch on X">X</a>
       </div>
     </header>
   );
