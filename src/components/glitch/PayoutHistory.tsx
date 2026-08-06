@@ -5,7 +5,7 @@ type Props = { payouts: Payout[] };
 
 export function PayoutHistory({ payouts }: Props) {
   return (
-    <Panel title="Payout History" className="history-panel">
+    <Panel title="Settlements" className="history-panel">
       {payouts.length === 0 ? (
         <div className="history-empty">
           <strong>0 rounds settled</strong>

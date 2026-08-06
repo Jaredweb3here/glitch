@@ -21,11 +21,11 @@ export function CountdownTimer({ round, onBuy, mode }: Props) {
 
   return (
     <section className={`timer-panel ${danger ? 'danger' : ''} ${critical ? 'critical' : ''} ${round.status !== 'active' ? 'settling' : ''}`}>
-      <span className="timer-chip">UniPonsi</span>
+      <span className="timer-chip">ROUND CLOCK</span>
       <GlitchText active={critical || round.status !== 'active'} className="timer-value">
         {format(round.secondsLeft)}
       </GlitchText>
-      <p>LAST BUYER TAKES THE POT</p>
+      <p>LAST QUALIFYING BUY CLAIMS THE POOL</p>
       {round.secondsLeft === 60 && round.status === 'active' && <span className="clock-reset">CLOCK RESET</span>}
       <span className="edge-symbol left">$</span>
       <span className="edge-symbol right">0x</span>

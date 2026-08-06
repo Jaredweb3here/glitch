@@ -31,25 +31,34 @@ export function GlitchDashboard() {
       <AmbientBackground />
       <TopNavigation tokenInfo={tokenInfo} />
       <main className="dashboard-grid">
-        <div className="left-column">
-          <MechanicsPanel />
-          <FeeSplitChart />
-          <PayoutHistory payouts={payouts} />
-        </div>
-
-        <div className="center-column">
-          <CountdownTimer round={round} onBuy={simulateBuy} mode={mode} />
-          <PotValue eth={round.potEth} usd={round.potUsd} delta={delta} potRef={potRef} />
-          <PayoutExecuted round={round} />
-          <div className="round-status">
-            ROUND {round.roundId} {round.status === 'active' ? 'LIVE' : round.status === 'payout' ? 'SETTLING' : 'SETTLED — RESTARTING ...'}
-          </div>
-        </div>
-
-        <div className="right-column">
+        <section className="command-grid">
+          <section className="round-core">
+            <div className="round-meta">
+              <span>ROUND CONTROL</span>
+              <strong>R-{String(round.roundId).padStart(3, '0')}</strong>
+              <small>{round.wallets} wallets / {round.buys} qualifying buys</small>
+            </div>
+            <PotValue eth={round.potEth} usd={round.potUsd} delta={delta} potRef={potRef} />
+            <CountdownTimer round={round} onBuy={simulateBuy} mode={mode} />
+            <div className="round-status">
+              <span className="status-dot" />
+              {round.status === 'active' ? 'ROUND LIVE' : round.status === 'payout' ? 'SETTLEMENT IN PROGRESS' : 'RESTARTING ROUND'}
+            </div>
+          </section>
           <TradeStream trades={trades} lastTradeId={lastTradeId} potRef={potRef} onParticleRequest={spawn} />
+        </section>
+
+        <section className="intel-grid">
           <RoundLeaderboard round={round} buyers={buyers} />
-        </div>
+          <div className="routing-stack">
+            <FeeSplitChart />
+            <PayoutHistory payouts={payouts} />
+          </div>
+          <div className="protocol-stack">
+            <MechanicsPanel />
+            <PayoutExecuted round={round} />
+          </div>
+        </section>
       </main>
       <TradeParticleLayer particles={particles} />
     </div>
