@@ -10,7 +10,7 @@ const rows = [
 
 export function MechanicsPanel() {
   return (
-    <Panel title="Protocol Rules" className="mechanics-panel">
+    <Panel title="House Rules" className="mechanics-panel">
       <div className="mechanics-list">
         {rows.map((row, index) => (
           <div className="mechanic-row" key={row}>

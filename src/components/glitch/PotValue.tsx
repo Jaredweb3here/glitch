@@ -12,7 +12,7 @@ type Props = {
 export function PotValue({ eth, usd, delta, potRef }: Props) {
   return (
     <section className="pot-area" ref={potRef}>
-      <span className="section-label">CURRENT POOL</span>
+      <span className="section-label">THE PLATE</span>
       <motion.div
         className="pot-number-wrap"
         animate={{ scale: delta ? [1, 1.035, 1] : 1 }}

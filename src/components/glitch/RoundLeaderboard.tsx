@@ -19,7 +19,7 @@ export function RoundLeaderboard({ round, buyers }: Props) {
   }, [buyers, query]);
 
   return (
-    <Panel title="Wallet Positions" subtitle={subtitle} className="round-panel">
+    <Panel title="Sushi Bar" subtitle={subtitle} className="round-panel">
       <label className="wallet-search">
         <Search size={15} />
         <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search wallet 0x..." />

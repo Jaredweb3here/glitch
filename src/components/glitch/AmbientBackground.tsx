@@ -1,4 +1,4 @@
-const symbols = ['$', '0x', '▮', '=', '▯', '::'];
+const symbols = ['鮨', '米', '海', '巻', '🍣', '○'];
 
 export function AmbientBackground() {
   return (

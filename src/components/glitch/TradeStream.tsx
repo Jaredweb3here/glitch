@@ -29,7 +29,7 @@ export function TradeStream({ trades, lastTradeId, potRef, onParticleRequest }: 
   return (
     <section className="panel trade-panel">
       <header className="panel-header">
-        <div><h2>LIVE FLOW</h2><p>EXECUTION TAPE · LAST 8</p></div>
+        <div><h2>ORDER BELT</h2><p>FRESH ORDERS · LAST 8</p></div>
         <button className="panel-toggle">[-]</button>
       </header>
       <div className="stream-scroll">
@@ -54,7 +54,7 @@ export function TradeStream({ trades, lastTradeId, potRef, onParticleRequest }: 
           ))}
         </div>
       </div>
-      <footer className="stream-footer">FLOW NODE / LIVE INGEST</footer>
+      <footer className="stream-footer">CONVEYOR LIVE · ONCHAIN ORDERS</footer>
       <div className="stream-search-icon"><Search size={13} /></div>
     </section>
   );

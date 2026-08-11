@@ -31,9 +31,9 @@ export function TopNavigation({ tokenInfo }: Props) {
   return (
     <header className="top-nav">
       <div className="brand">
-        <img src="/glitch-logo.png" alt="UniGlitch mark" className="brand-logo" />
-        <span>UniGlitch</span>
-        <small>ROUND TERMINAL</small>
+        <img src="/glitch-logo.png" alt="SushiPonzi mark" className="brand-logo" />
+        <span>SushiPonzi</span>
+        <small>LAST BITE WINS</small>
       </div>
       <nav className="nav-center" aria-label="Primary">
         <span className="token-pill active">{symbol}</span>
@@ -47,7 +47,7 @@ export function TopNavigation({ tokenInfo }: Props) {
       </nav>
       <div className="nav-right">
         <div className="live-indicator"><span />LIVE</div>
-        <a className="social-link" href="https://x.com/uniglitch_fun" target="_blank" rel="noreferrer" aria-label="UniGlitch on X">X</a>
+        <a className="social-link" href="https://x.com/SushiPonzi" target="_blank" rel="noreferrer" aria-label="SushiPonzi on X">X</a>
       </div>
     </header>
   );

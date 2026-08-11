@@ -3,13 +3,13 @@ import { Panel } from './Panel';
 const radius = 44;
 const circumference = 2 * Math.PI * radius;
 const segments = [
-  { name: 'POOL', value: 100, color: '#FF37C7' }
+  { name: 'PLATE', value: 100, color: '#F05A67' }
 ];
 
 export function FeeSplitChart() {
   let offset = 0;
   return (
-    <Panel title="Pool Routing" className="fee-panel">
+    <Panel title="Plate Routing" className="fee-panel">
       <div className="fee-content">
         <div className="donut-wrap">
           <svg viewBox="0 0 120 120" className="donut-svg">

@@ -21,14 +21,14 @@ export function CountdownTimer({ round, onBuy, mode }: Props) {
 
   return (
     <section className={`timer-panel ${danger ? 'danger' : ''} ${critical ? 'critical' : ''} ${round.status !== 'active' ? 'settling' : ''}`}>
-      <span className="timer-chip">ROUND CLOCK</span>
+      <span className="timer-chip">ORDER WINDOW</span>
       <GlitchText active={critical || round.status !== 'active'} className="timer-value">
         {format(round.secondsLeft)}
       </GlitchText>
-      <p>LAST QUALIFYING BUY CLAIMS THE POOL</p>
-      {round.secondsLeft === 60 && round.status === 'active' && <span className="clock-reset">CLOCK RESET</span>}
-      <span className="edge-symbol left">$</span>
-      <span className="edge-symbol right">0x</span>
+      <p>THE LAST QUALIFYING BUY TAKES THE PLATE</p>
+      {round.secondsLeft === 60 && round.status === 'active' && <span className="clock-reset">FRESH ORDER · CLOCK RESET</span>}
+      <span className="edge-symbol left">米</span>
+      <span className="edge-symbol right">鮨</span>
     </section>
   );
 }
